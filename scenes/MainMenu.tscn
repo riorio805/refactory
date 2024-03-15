@@ -1,0 +1,215 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmnjs63rf0w1l"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_yiabn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ikpj"]
+line_spacing = 0.0
+font_size = 100
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsak7"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pdkl"]
+content_margin_left = 4.0
+bg_color = Color(0.109804, 0.109804, 0.109804, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_yiabn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 49.0
+offset_right = 540.0
+offset_bottom = 701.0
+color = Color(0.203922, 0.203922, 0.203922, 0.615686)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 46.0
+offset_right = 480.0
+offset_bottom = 229.0
+mouse_filter = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "refactory"
+label_settings = SubResource("LabelSettings_2ikpj")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "(tech demo, indev, etc.)"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 34.0
+offset_top = 269.0
+offset_right = 480.0
+offset_bottom = 527.0
+mouse_filter = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Seed:"
+label_settings = SubResource("LabelSettings_nsak7")
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_colors/font_uneditable_color = Color(0.780392, 0.780392, 0.780392, 1)
+theme_override_styles/read_only = SubResource("StyleBoxFlat_7pdkl")
+text = "IndividualGameJam2024"
+max_length = 40
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "You can't change this after starting"
+label_settings = SubResource("LabelSettings_nsak7")
+
+[node name="PlayButton" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Play Game"
+
+[node name="Credits" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "Exit Game"
+
+[node name="Credits" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 580.0
+offset_top = 20.0
+offset_right = 1388.0
+offset_bottom = 1026.0
+mouse_force_pass_scroll_events = false
+color = Color(0.145098, 0.145098, 0.145098, 0.960784)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 0
+offset_right = 804.0
+offset_bottom = 1004.0
+
+[node name="Label" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Credits!"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+focus_mode = 2
+bbcode_enabled = true
+text = "[font_size=20]This is a list of assets used in making this game.
+Please support the artists by buying their stuff or buying them a coffee/pizza/regional-specific snack.
+If you are the owner of any of the assets mentioned above and want to remove it from this game, feel free to contact me for asset deletion.
+All other assets are self-made, edited from the previously mentioned, or edited memes.
+
+
+[font_size=30][u][b]Addons[/b][/u][font_size=20]
+CurveMesh3D by cloudofoz
+Available in the Asset Library, or at
+https://github.com/cloudofoz/godot-curvemesh
+Used under the MIT license.
+
+
+[font_size=30][u][b]Skybox[/b][/u][font_size=20]
+AllSkyFree_Godot, used under the MIT License
+https://github.com/rpgwhitelock/AllSkyFree_Godot
+
+
+[font_size=30][u][b]BGM[/b][/u][font_size=20]
+All songs' names appear in game and are easily searchable, including:
+
+Music created by Kevin MacLeod (incompetech.com), including:
+-> Lobby Time
+-> Casa Bossa Nova
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music created by C418, which includes:
+-> click (from Cookie Clicker OST)
+-> Sweden (from Minecraft Volume Alpha)
+C418's license can be found here:
+https://c418.org/2017/01/26/what-am-i-allowed-to-do-with-daniels-music/
+
+Music created by massobeats, which includes:
+-> honey jam
+-> floral
+Used in accordance to the creator's usage terms.
+
+Music under the DOVA-SYNDROME label, which includes:
+-> 2:23 AM by Sharou
+-> Cassette Tape Dream by Sharou
+-> ensolarado by Kyaai
+DOVA-SYNDROME's license can be found here:
+https://dova-s.jp/EN/_contents/license/
+In addition,
+music created by Kyaai has additional license which can be found here (JP):
+https://dova-s.jp/EN/_contents/author/profile066.html
+
+
+[font_size=30][u][b]SFX[/b][/u][font_size=20]
+\"Stones Falling\" by Pixabay
+https://pixabay.com/sound-effects/stones-falling-6375/
+
+Some sound effects created using bfxr, specifically jsfxr
+https://sfxr.me/
+
+
+[font_size=30][u][b]Textures[/b][/u][font_size=20]
+\"Close up of small rock stones\" by Tero Vesalainen
+https://freerangestock.com/photos/136977/close-up-of-small-rock-stones.html
+
+\"Rock Gold Nugget Sculpture\" by roemi62
+https://www.needpix.com/photo/1670482/rock-gold-nugget-sculpture-art
+
+\"Marble Stone Texture\" by JustMeSupport
+https://commons.wikimedia.org/wiki/File:Marble_Stone_Texture.jpg
+Licensed under CC BY-SA 4.0
+
+
+[font_size=30][u][b]Other[/b][/u][font_size=20]
+Unicode emojis licensed under Unicode License v3
+https://home.unicode.org/"
+fit_content = true
+selection_enabled = true
+
+[connection signal="pressed" from="VBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer2/ExitButton" to="." method="_on_exit_button_pressed"]

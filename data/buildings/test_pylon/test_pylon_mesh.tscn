@@ -1,0 +1,135 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7ovfms07nx0p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kfjmu"]
+size = Vector3(0.8, 0.05, 0.8)
+
+[sub_resource type="SphereMesh" id="SphereMesh_s8xy2"]
+radius = 0.15
+height = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c51k8"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.15
+
+[node name="TestPylonMesh" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_kfjmu")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Node3D"]
+transform = Transform3D(0.707107, -0.147016, -0.691655, 0, 0.978148, -0.207912, 0.707107, 0.147016, 0.691655, 0.12, 0.6, -0.12)
+radius = 0.03
+height = 1.2
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Node3D"]
+transform = Transform3D(-0.707107, -0.147016, -0.691655, 0, 0.978148, -0.207912, 0.707107, -0.147016, -0.691655, 0.12, 0.6, 0.12)
+radius = 0.03
+height = 1.2
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Node3D"]
+transform = Transform3D(-0.707107, 0.147016, 0.691655, 0, 0.978148, -0.207912, -0.707107, -0.147016, -0.691655, -0.12, 0.6, 0.12)
+radius = 0.03
+height = 1.2
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Node3D"]
+transform = Transform3D(0.707107, 0.147016, 0.691655, 0, 0.978148, -0.207912, -0.707107, 0.147016, 0.691655, -0.12, 0.6, -0.12)
+radius = 0.03
+height = 1.2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1915, 0)
+mesh = SubResource("SphereMesh_s8xy2")
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.82608, 0.0935471)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(-4.37114e-08, -1.4, 0, 1, -6.11959e-08, 0, 0, 0, 1, 0.00201028, 0.648926, 0.119284)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(-4.37114e-08, -1.8, 0, 1, -7.86805e-08, 0, 0, 0, 1, 0, 0.462139, 0.151026)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(-4.37114e-08, -2.2, 0, 1, -9.61651e-08, 0, 0, 0, 1, 0, 0.183798, 0.175823)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D3"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.82608, 0.0935471)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D3"]
+transform = Transform3D(-4.37114e-08, -1.4, 0, 1, -6.11959e-08, 0, 0, 0, 1, 0.00201028, 0.648926, 0.119284)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D3"]
+transform = Transform3D(-4.37114e-08, -1.8, 0, 1, -7.86805e-08, 0, 0, 0, 1, 0, 0.462139, 0.151026)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D3"]
+transform = Transform3D(-4.37114e-08, -2.2, 0, 1, -9.61651e-08, 0, 0, 0, 1, 0, 0.183798, 0.175823)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D4"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.82608, 0.0935471)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D4"]
+transform = Transform3D(-4.37114e-08, -1.4, 0, 1, -6.11959e-08, 0, 0, 0, 1, 0.00201028, 0.648926, 0.119284)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D4"]
+transform = Transform3D(-4.37114e-08, -1.8, 0, 1, -7.86805e-08, 0, 0, 0, 1, 0, 0.462139, 0.151026)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D4"]
+transform = Transform3D(-4.37114e-08, -2.2, 0, 1, -9.61651e-08, 0, 0, 0, 1, 0, 0.183798, 0.175823)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="Node3D5" type="Node3D" parent="."]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D5"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.82608, 0.0935471)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D5"]
+transform = Transform3D(-4.37114e-08, -1.4, 0, 1, -6.11959e-08, 0, 0, 0, 1, 0.00201028, 0.648926, 0.119284)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D5"]
+transform = Transform3D(-4.37114e-08, -1.8, 0, 1, -7.86805e-08, 0, 0, 0, 1, 0, 0.462139, 0.151026)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D5"]
+transform = Transform3D(-4.37114e-08, -2.2, 0, 1, -9.61651e-08, 0, 0, 0, 1, 0, 0.183798, 0.175823)
+mesh = SubResource("CylinderMesh_c51k8")
+skeleton = NodePath("../../Node3D")

@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://1khxk5rq53mv"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_wodd6"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="2_bn4mo"]
+[ext_resource type="Sky" uid="uid://c544pp4xiwnk6" path="res://assets/skybox/daytime_skybox.tres" id="3_7rci5"]
+[ext_resource type="Script" path="res://scripts/TileFactory.gd" id="4_bwweq"]
+[ext_resource type="PackedScene" uid="uid://ck2e70ll2l5dp" path="res://scenes/MainGUI.tscn" id="5_d88bs"]
+[ext_resource type="MeshLibrary" uid="uid://coxik17mtpxd1" path="res://assets/tile/mesh_library.tres" id="6_x2m4k"]
+[ext_resource type="Script" path="res://scripts/GridMap.gd" id="7_31jcl"]
+
+[sub_resource type="Environment" id="Environment_gu45t"]
+background_mode = 2
+background_energy_multiplier = 0.7
+sky = ExtResource("3_7rci5")
+sky_rotation = Vector3(0, 0.261799, 0)
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.05
+ambient_light_energy = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_701qc"]
+radius = 0.125
+height = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hniy"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 1, 1, 0.223529)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.1
+rim = 0.14
+rim_tint = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xfxo"]
+material = SubResource("StandardMaterial3D_6hniy")
+
+[sub_resource type="PrismMesh" id="PrismMesh_itupi"]
+size = Vector3(5, 1, 5)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wodd6")
+
+[node name="Focus" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_bn4mo")
+
+[node name="Camera3D" type="Camera3D" parent="Focus"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+environment = SubResource("Environment_gu45t")
+current = true
+far = 1000.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Focus"]
+mesh = SubResource("SphereMesh_701qc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 0, 3, 10)
+
+[node name="TileFactory" type="Node" parent="."]
+script = ExtResource("4_bwweq")
+
+[node name="MainGUI" parent="." instance=ExtResource("5_d88bs")]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("6_x2m4k")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("7_31jcl")
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="HoverBox" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("BoxMesh_8xfxo")
+skeleton = NodePath("")
+
+[node name="Buildings" type="Node" parent="."]
+
+[node name="Base" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Base"]
+mesh = SubResource("PrismMesh_itupi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_itupi")

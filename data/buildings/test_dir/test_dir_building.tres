@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Building" load_steps=4 format=3 uid="uid://c4o4s367nionm"]
+
+[ext_resource type="Texture2D" uid="uid://c0tqmrnpymyat" path="res://data/buildings/test_dir/test_dir_icon.png" id="1_3yy3q"]
+[ext_resource type="Script" path="res://data/models/building.gd" id="1_rm6kb"]
+[ext_resource type="PackedScene" uid="uid://47krl6vdmrw2" path="res://data/buildings/test_dir/test_dir_mesh.tscn" id="2_wxbwr"]
+
+[resource]
+script = ExtResource("1_rm6kb")
+build_id = 3
+name = "test dir"
+description = "for testing direction"
+type = 0
+mesh = ExtResource("2_wxbwr")
+size = 1
+gui_icon = ExtResource("1_3yy3q")
+blueprint = Array[PackedInt32Array]([PackedInt32Array(1)])

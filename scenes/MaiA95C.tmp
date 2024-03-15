@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://1khxk5rq53mv"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_wodd6"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="2_bn4mo"]
+[ext_resource type="Sky" uid="uid://c544pp4xiwnk6" path="res://assets/skybox/daytime_skybox.tres" id="3_7rci5"]
+[ext_resource type="Script" path="res://scripts/tile_factory.gd" id="4_bwweq"]
+[ext_resource type="PackedScene" uid="uid://ck2e70ll2l5dp" path="res://scenes/MainGUI.tscn" id="5_d88bs"]
+[ext_resource type="MeshLibrary" uid="uid://coxik17mtpxd1" path="res://assets/tile/mesh_library.tres" id="6_x2m4k"]
+[ext_resource type="Script" path="res://scripts/GridMap.gd" id="7_31jcl"]
+[ext_resource type="Script" path="res://scripts/building_manager.gd" id="8_2xh57"]
+[ext_resource type="Material" uid="uid://b5ilo2j0msvc4" path="res://assets/shaders/translucent.tres" id="8_8sdwm"]
+[ext_resource type="Script" path="res://scripts/wire_manager.gd" id="9_s0txy"]
+[ext_resource type="Script" path="res://scripts/AudioStreamPlayer.gd" id="10_nloyd"]
+
+[sub_resource type="Environment" id="Environment_gu45t"]
+background_mode = 2
+background_energy_multiplier = 0.7
+sky = ExtResource("3_7rci5")
+sky_rotation = Vector3(0, 0.261799, 0)
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.05
+ambient_light_energy = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_701qc"]
+radius = 0.125
+height = 0.25
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xfxo"]
+material = ExtResource("8_8sdwm")
+
+[sub_resource type="PrismMesh" id="PrismMesh_itupi"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l434q"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1dm8f"]
+top_radius = 0.2
+bottom_radius = 0.2
+
+[sub_resource type="TorusMesh" id="TorusMesh_f6s2w"]
+inner_radius = 0.1
+outer_radius = 0.5
+rings = 3
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wodd6")
+
+[node name="Focus" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+script = ExtResource("2_bn4mo")
+min_distance = 2
+
+[node name="Camera3D" type="Camera3D" parent="Focus"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+environment = SubResource("Environment_gu45t")
+current = true
+far = 100.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Focus"]
+mesh = SubResource("SphereMesh_701qc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 0, 3, 10)
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("6_x2m4k")
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 64
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("7_31jcl")
+hover_mesh_move_mod = 0.2
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="HoverBox" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("BoxMesh_8xfxo")
+skeleton = NodePath("")
+
+[node name="Base" type="Node3D" parent="."]
+
+[node name="roof1" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("PrismMesh_itupi")
+
+[node name="roof2" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2.5, 0)
+mesh = SubResource("PrismMesh_itupi")
+
+[node name="foundation" type="MeshInstance3D" parent="Base"]
+mesh = SubResource("BoxMesh_l434q")
+
+[node name="pillar" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 2)
+mesh = SubResource("CylinderMesh_1dm8f")
+
+[node name="pillar2" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 2)
+mesh = SubResource("CylinderMesh_1dm8f")
+
+[node name="pillar3" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -2)
+mesh = SubResource("CylinderMesh_1dm8f")
+
+[node name="pillar4" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -2)
+mesh = SubResource("CylinderMesh_1dm8f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 1.5, 0.5, 0)
+mesh = SubResource("TorusMesh_f6s2w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0.5, 1.5)
+mesh = SubResource("TorusMesh_f6s2w")
+
+[node name="TileFactory" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("4_bwweq")
+
+[node name="Buildings" type="Node" parent="."]
+script = ExtResource("8_2xh57")
+
+[node name="Wires" type="Node" parent="."]
+script = ExtResource("9_s0txy")
+
+[node name="MainGUI" parent="." instance=ExtResource("5_d88bs")]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+script = ExtResource("10_nloyd")
+
+[connection signal="finished" from="BGMPlayer" to="BGMPlayer" method="_on_finished"]

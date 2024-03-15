@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqfopui3sjuss"
+path="res://.godot/imported/Kevin MacLeod - Lobby Time.mp3-4360d68784293643686a6faf1428cdd6.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Kevin MacLeod - Lobby Time.mp3"
+dest_files=["res://.godot/imported/Kevin MacLeod - Lobby Time.mp3-4360d68784293643686a6faf1428cdd6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

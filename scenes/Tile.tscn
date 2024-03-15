@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://4h60koucid1m"]
+
+[ext_resource type="Script" path="res://scripts/Tile.gd" id="1_ispwo"]
+[ext_resource type="Texture2D" uid="uid://dvn1m1ep28haa" path="res://assets/textures/minecraft_grass.png" id="1_kc2ex"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1ktl"]
+albedo_texture = ExtResource("1_kc2ex")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_f2ix7"]
+material = SubResource("StandardMaterial3D_t1ktl")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldsbb"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 1, 1, 0.223529)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.1
+rim = 0.14
+rim_tint = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_h1eyd"]
+material = SubResource("StandardMaterial3D_ldsbb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qqdqw"]
+size = Vector3(1, 0.6, 1)
+
+[node name="Tile" type="Node3D"]
+script = ExtResource("1_ispwo")
+
+[node name="base" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_f2ix7")
+
+[node name="hover" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("BoxMesh_h1eyd")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_qqdqw")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

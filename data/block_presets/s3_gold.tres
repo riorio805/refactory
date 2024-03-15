@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BlockPreset" load_steps=2 format=3 uid="uid://d010qyfs34o4l"]
+
+[ext_resource type="Script" path="res://data/models/block_preset.gd" id="1_ysqle"]
+
+[resource]
+script = ExtResource("1_ysqle")
+size = 3
+blueprint = Array[PackedByteArray]([PackedByteArray(0, 0, 0, 255, 0), PackedByteArray(0, 255, 0, 0, 0), PackedByteArray(0, 2, 0, 0, 255), PackedByteArray(0, 2, 255, 0, 0), PackedByteArray(255, 255, 255, 0, 255)])

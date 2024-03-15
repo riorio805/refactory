@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Building" load_steps=2 format=3 uid="uid://bu5sjsgdm8ggj"]
+
+[ext_resource type="Script" path="res://data/models/building.gd" id="1_3jqd0"]
+
+[resource]
+script = ExtResource("1_3jqd0")
+build_id = 0
+name = "Base"
+description = "it's the base"
+type = 1
+size = 5
+iron_cost = 0
+gold_cost = 0
+iridium_cost = 0
+max_iron = -1
+max_gold = -1
+max_iridium = -1
+max_out_connect = 0
+blueprint = Array[PackedInt32Array]([])

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4bvtvv7g2qxe"
+path="res://.godot/imported/massobeats - honey jam.mp3-98a73244d706b1c900902a46782a72bf.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/massobeats - honey jam.mp3"
+dest_files=["res://.godot/imported/massobeats - honey jam.mp3-98a73244d706b1c900902a46782a72bf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

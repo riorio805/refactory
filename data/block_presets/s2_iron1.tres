@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BlockPreset" load_steps=2 format=3 uid="uid://bxmacg1rs5u06"]
+
+[ext_resource type="Script" path="res://data/models/block_preset.gd" id="1_dkbeb"]
+
+[resource]
+script = ExtResource("1_dkbeb")
+size = 2
+blueprint = Array[PackedByteArray]([PackedByteArray(255, 1, 0), PackedByteArray(1, 255, 1), PackedByteArray(0, 1, 0)])

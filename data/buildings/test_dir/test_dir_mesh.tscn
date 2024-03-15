@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://47krl6vdmrw2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0r7bd"]
+size = Vector3(0.8, 0.05, 0.8)
+
+[sub_resource type="TorusMesh" id="TorusMesh_slu8d"]
+inner_radius = 0.2
+outer_radius = 0.03
+rings = 3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_htwy7"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.4
+
+[node name="TestDirMesh" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+mesh = SubResource("BoxMesh_0r7bd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.15, 0.127, 0)
+mesh = SubResource("TorusMesh_slu8d")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.125239, 0.114454, 0)
+mesh = SubResource("CylinderMesh_htwy7")

@@ -1,0 +1,75 @@
+(This text also appears in-game under the credits menu.)
+
+This is a list of assets used in making this game.
+Please support the artists by buying their stuff or buying them a coffee/pizza/regional-specific snack.
+If you are the owner of any of the assets mentioned above and want to remove it from this game, feel free to contact me for asset deletion.
+All other assets are self-made, edited from the previously mentioned, or edited memes.
+
+
+Addons
+CurveMesh3D by cloudofoz
+Available in the Asset Library, or at
+https://github.com/cloudofoz/godot-curvemesh
+Used under the MIT license.
+
+
+Skybox
+AllSkyFree_Godot, used under the MIT License
+https://github.com/rpgwhitelock/AllSkyFree_Godot
+
+
+BGM
+All songs appear in game and easily searchable, including:
+
+Music created by Kevin MacLeod (incompetech.com), including:
+-> Lobby Time
+-> Casa Bossa Nova
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music created by C418, which includes:
+-> click (from Cookie Clicker OST)
+-> Sweden (from Minecraft Volume Alpha)
+C418's license can be found here:
+https://c418.org/2017/01/26/what-am-i-allowed-to-do-with-daniels-music/
+
+Music created by massobeats, which includes:
+-> honey jam
+-> floral
+Used in accordance to the creator's usage terms.
+
+Music under the DOVA-SYNDROME label, which includes:
+-> 2:23 AM by Sharou
+-> Cassette Tape Dream by Sharou
+-> ensolarado by Kyaai
+DOVA-SYNDROME's license can be found here:
+https://dova-s.jp/EN/_contents/license/
+In addition,
+music created by Kyaai has additional license which can be found here (JP):
+https://dova-s.jp/EN/_contents/author/profile066.html
+
+
+SFX
+"Stones Falling" by Pixabay
+https://pixabay.com/sound-effects/stones-falling-6375/
+
+Some sound effects created using bfxr, specifically jsfxr
+https://sfxr.me/
+
+
+Textures
+"Close up of small rock stones" by Tero Vesalainen
+https://freerangestock.com/photos/136977/close-up-of-small-rock-stones.html
+
+"Rock Gold Nugget Sculpture" by roemi62
+https://www.needpix.com/photo/1670482/rock-gold-nugget-sculpture-art
+
+"Marble Stone Texture" by JustMeSupport
+https://commons.wikimedia.org/wiki/File:Marble_Stone_Texture.jpg
+Licensed under CC BY-SA 4.0
+
+
+Other
+Unicode emojis
+https://home.unicode.org/
+Licensed under Unicode License v3

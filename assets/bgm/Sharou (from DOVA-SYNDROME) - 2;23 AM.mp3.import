@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xtvw5tdra5dx"
+path="res://.godot/imported/Sharou (from DOVA-SYNDROME) - 2;23 AM.mp3-5b8d8d3f34cd60f915a7fe38b588db3d.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Sharou (from DOVA-SYNDROME) - 2;23 AM.mp3"
+dest_files=["res://.godot/imported/Sharou (from DOVA-SYNDROME) - 2;23 AM.mp3-5b8d8d3f34cd60f915a7fe38b588db3d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

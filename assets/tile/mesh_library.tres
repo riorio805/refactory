@@ -1,0 +1,63 @@
+[gd_resource type="MeshLibrary" load_steps=13 format=3 uid="uid://coxik17mtpxd1"]
+
+[ext_resource type="BoxMesh" uid="uid://d0ckds2jecxox" path="res://assets/tile/mine_stone_scene.tres" id="2_fku0r"]
+[ext_resource type="Texture2D" uid="uid://dvn1m1ep28haa" path="res://assets/textures/minecraft_grass.png" id="2_klrgh"]
+[ext_resource type="BoxMesh" uid="uid://ck1q68bvlsl07" path="res://assets/tile/iron_mesh.tres" id="3_f5ni5"]
+[ext_resource type="BoxMesh" uid="uid://dci4ix1sohj2a" path="res://assets/tile/gold_mesh.tres" id="4_6oji3"]
+[ext_resource type="BoxMesh" uid="uid://dk4hcfnr7yd1c" path="res://assets/tile/iridium_mesh.tres" id="5_42037"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48elv"]
+albedo_texture = ExtResource("2_klrgh")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_jf0bf"]
+material = SubResource("StandardMaterial3D_48elv")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wg1qq"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_be4dr"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2xtt3"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06yqc"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_flr8c"]
+size = Vector3(1, 0.5, 1)
+
+[resource]
+item/0/name = "grass"
+item/0/mesh = SubResource("BoxMesh_jf0bf")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = [SubResource("BoxShape3D_wg1qq"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+item/0/preview = ExtResource("2_klrgh")
+item/1/name = "stone"
+item/1/mesh = ExtResource("2_fku0r")
+item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/shapes = [SubResource("BoxShape3D_be4dr"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1
+item/2/name = "iron"
+item/2/mesh = ExtResource("3_f5ni5")
+item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/shapes = [SubResource("BoxShape3D_2xtt3"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/navigation_layers = 1
+item/3/name = "gold"
+item/3/mesh = ExtResource("4_6oji3")
+item/3/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/shapes = [SubResource("BoxShape3D_06yqc"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/navigation_layers = 1
+item/4/name = "iridium"
+item/4/mesh = ExtResource("5_42037")
+item/4/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/4/shapes = [SubResource("BoxShape3D_flr8c"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/4/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/4/navigation_layers = 1

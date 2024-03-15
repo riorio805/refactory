@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Building" load_steps=4 format=3 uid="uid://q4h6lt6jg3sj"]
+
+[ext_resource type="Texture2D" uid="uid://dkllsrwgku2p5" path="res://data/buildings/test_pylon/pylon_icon.png" id="1_1kwx5"]
+[ext_resource type="Script" path="res://data/models/building.gd" id="1_8eaur"]
+[ext_resource type="PackedScene" uid="uid://b7ovfms07nx0p" path="res://data/buildings/test_pylon/test_pylon_mesh.tscn" id="2_gbt8o"]
+
+[resource]
+script = ExtResource("1_8eaur")
+build_id = 6
+name = "Pylon"
+description = "Pylons. Great for moving stuff around. Essential for long distance transferring.
+
+Able to have 2 outward connections for split path transferring."
+type = 3
+mesh = ExtResource("2_gbt8o")
+size = 1
+gui_icon = ExtResource("1_1kwx5")
+iron_cost = 1
+gold_cost = 0
+iridium_cost = 0
+diamond_cost = 0
+max_iron = 10000
+max_gold = 10000
+max_iridium = 10000
+max_diamond = 0
+max_out_connect = 2
+blueprint = Array[PackedInt32Array]([PackedInt32Array(1)])

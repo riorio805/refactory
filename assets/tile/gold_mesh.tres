@@ -1,0 +1,12 @@
+[gd_resource type="BoxMesh" load_steps=3 format=3 uid="uid://dci4ix1sohj2a"]
+
+[ext_resource type="Texture2D" uid="uid://bpnu3iyrixkm5" path="res://assets/textures/gold.png" id="1_hkssa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej02b"]
+albedo_texture = ExtResource("1_hkssa")
+uv1_offset = Vector3(0.5, 0, 0.5)
+uv1_triplanar = true
+
+[resource]
+material = SubResource("StandardMaterial3D_ej02b")
+size = Vector3(1, 0.5, 1)

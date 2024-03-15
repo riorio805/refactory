@@ -1,0 +1,252 @@
+[gd_scene load_steps=30 format=3 uid="uid://1khxk5rq53mv"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_wodd6"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="2_bn4mo"]
+[ext_resource type="Sky" uid="uid://c544pp4xiwnk6" path="res://assets/skybox/daytime_skybox.tres" id="3_7rci5"]
+[ext_resource type="Script" path="res://scripts/tile_factory.gd" id="4_bwweq"]
+[ext_resource type="PackedScene" uid="uid://ck2e70ll2l5dp" path="res://scenes/MainGUI.tscn" id="5_d88bs"]
+[ext_resource type="MeshLibrary" uid="uid://coxik17mtpxd1" path="res://assets/tile/mesh_library.tres" id="6_x2m4k"]
+[ext_resource type="Script" path="res://scripts/GridMap.gd" id="7_31jcl"]
+[ext_resource type="Texture2D" uid="uid://k0lq71i33x3r" path="res://assets/textures/black.png" id="7_x4q0o"]
+[ext_resource type="Script" path="res://scripts/building_manager.gd" id="8_2xh57"]
+[ext_resource type="Material" uid="uid://b5ilo2j0msvc4" path="res://assets/shaders/translucent.tres" id="8_8sdwm"]
+[ext_resource type="Texture2D" uid="uid://qjq8a5a13q4a" path="res://assets/textures/force_field.png" id="8_i260d"]
+[ext_resource type="Script" path="res://scripts/wire_manager.gd" id="9_s0txy"]
+[ext_resource type="Script" path="res://scripts/AudioStreamPlayer.gd" id="10_nloyd"]
+
+[sub_resource type="Environment" id="Environment_gu45t"]
+background_mode = 2
+background_energy_multiplier = 0.7
+sky = ExtResource("3_7rci5")
+sky_rotation = Vector3(0, 0.261799, 0)
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.05
+ambient_light_energy = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_701qc"]
+radius = 0.125
+height = 0.25
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xfxo"]
+material = ExtResource("8_8sdwm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k1up"]
+albedo_texture = ExtResource("7_x4q0o")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kr8sj"]
+material = SubResource("StandardMaterial3D_1k1up")
+top_radius = 2.5
+bottom_radius = 3.3
+height = 0.5
+radial_segments = 4
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_l434q"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb6rh"]
+albedo_texture = ExtResource("7_x4q0o")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ycx6q"]
+material = SubResource("StandardMaterial3D_vb6rh")
+top_radius = 1.7
+bottom_radius = 1.0
+height = 1.0
+radial_segments = 12
+rings = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_lprk1"]
+size = Vector3(1.1, 1.1, 1.1)
+
+[sub_resource type="Animation" id="Animation_flbyb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.616101, 0, 0.785398)]
+}
+
+[sub_resource type="Animation" id="Animation_yv0wm"]
+resource_name = "rotating"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.616101, 0, 0.785398), Vector3(0.616101, 2.0944, 0.785398), Vector3(0.616101, 4.18879, 0.785398)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.8, 0, 0, 1, 0, 1.2, -1, 0, 1, 0, 0.8, -1, 0, 0, 0),
+"times": PackedFloat32Array(0, 2, 4)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("field:mesh:material:uv1_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qe6po"]
+_data = {
+"RESET": SubResource("Animation_flbyb"),
+"rotating": SubResource("Animation_yv0wm")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ulcda"]
+size = Vector3(5, 2, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5nxs"]
+transparency = 1
+albedo_texture = ExtResource("8_i260d")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_offset = Vector3(0, 1.54846, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_laqbs"]
+material = SubResource("StandardMaterial3D_j5nxs")
+radius = 1.0
+height = 2.2
+
+[sub_resource type="TorusMesh" id="TorusMesh_f6s2w"]
+inner_radius = 0.1
+outer_radius = 0.5
+rings = 3
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_wodd6")
+
+[node name="Focus" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+script = ExtResource("2_bn4mo")
+min_distance = 2
+
+[node name="Camera3D" type="Camera3D" parent="Focus"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)
+environment = SubResource("Environment_gu45t")
+current = true
+far = 100.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Focus"]
+mesh = SubResource("SphereMesh_701qc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 0, 3, 10)
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("6_x2m4k")
+cell_size = Vector3(1, 1, 1)
+cell_octant_size = 64
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("7_31jcl")
+hover_mesh_move_mod = 0.2
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="HoverBox" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+visible = false
+mesh = SubResource("BoxMesh_8xfxo")
+skeleton = NodePath("")
+
+[node name="Base" type="Node3D" parent="."]
+
+[node name="base" type="CSGCombiner3D" parent="Base"]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Base/base"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_kr8sj")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Base/base"]
+mesh = SubResource("BoxMesh_l434q")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Base/base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.271572, 0)
+operation = 2
+mesh = SubResource("CylinderMesh_ycx6q")
+
+[node name="Node3D" type="Node3D" parent="Base"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.577096, 0.577097, -0.577858, 0.408607, 0.408607, 0.816138, 0, 0.961657, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Base/Node3D"]
+mesh = SubResource("BoxMesh_lprk1")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Base"]
+libraries = {
+"": SubResource("AnimationLibrary_qe6po")
+}
+autoplay = "rotating"
+
+[node name="Area3D" type="Area3D" parent="Base"]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/Area3D"]
+shape = SubResource("BoxShape3D_ulcda")
+
+[node name="field" type="MeshInstance3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03695, 0)
+mesh = SubResource("SphereMesh_laqbs")
+
+[node name="Node3D" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 1.5, 3.32534, 0)
+mesh = SubResource("TorusMesh_f6s2w")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 3.32534, 1.5)
+mesh = SubResource("TorusMesh_f6s2w")
+skeleton = NodePath("../..")
+
+[node name="TileFactory" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("4_bwweq")
+
+[node name="Buildings" type="Node" parent="."]
+script = ExtResource("8_2xh57")
+
+[node name="Wires" type="Node" parent="."]
+script = ExtResource("9_s0txy")
+
+[node name="MainGUI" parent="." instance=ExtResource("5_d88bs")]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"
+script = ExtResource("10_nloyd")
+
+[connection signal="finished" from="BGMPlayer" to="BGMPlayer" method="_on_finished"]

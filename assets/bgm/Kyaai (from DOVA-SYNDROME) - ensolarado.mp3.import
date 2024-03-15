@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c62yr38y0gg6p"
+path="res://.godot/imported/Kyaai (from DOVA-SYNDROME) - ensolarado.mp3-175fad68d1df31eecbbcf96a19befb4e.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Kyaai (from DOVA-SYNDROME) - ensolarado.mp3"
+dest_files=["res://.godot/imported/Kyaai (from DOVA-SYNDROME) - ensolarado.mp3-175fad68d1df31eecbbcf96a19befb4e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

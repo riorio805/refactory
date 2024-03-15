@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4vupec57i7na"
+path="res://.godot/imported/Sharou (from DOVA-SYNDROME) - Cassette Tape Dream.mp3-4f277053c0167a51750fbcbaa565fe79.mp3str"
+
+[deps]
+
+source_file="res://assets/bgm/Sharou (from DOVA-SYNDROME) - Cassette Tape Dream.mp3"
+dest_files=["res://.godot/imported/Sharou (from DOVA-SYNDROME) - Cassette Tape Dream.mp3-4f277053c0167a51750fbcbaa565fe79.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

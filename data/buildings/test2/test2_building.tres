@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Building" load_steps=4 format=3 uid="uid://bjtbs050wpe5"]
+
+[ext_resource type="Texture2D" uid="uid://cjddjjyb73sq6" path="res://data/buildings/test2/test2_icon.jpeg" id="1_0fad2"]
+[ext_resource type="Script" path="res://data/models/building.gd" id="1_tw4mp"]
+[ext_resource type="PackedScene" uid="uid://cgaeqk3xdu6dt" path="res://data/buildings/test2/test2_mesh.tscn" id="2_73p3v"]
+
+[resource]
+script = ExtResource("1_tw4mp")
+build_id = 2
+name = "test2"
+description = ""
+type = 0
+mesh = ExtResource("2_73p3v")
+size = 1
+gui_icon = ExtResource("1_0fad2")
+blueprint = Array[PackedInt32Array]([PackedInt32Array(1)])

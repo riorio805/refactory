@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0mlogioc5x7w"]
+
+[ext_resource type="PackedScene" uid="uid://d0xa6ffc8j4cu" path="res://scenes/wire.tscn" id="1_wujo5"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Wire" parent="." instance=ExtResource("1_wujo5")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.46222)
