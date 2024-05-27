@@ -1,0 +1,3 @@
+Polishing done:
+- Using gdLinter, formatted every script in scripts to make code more cleaner
+- Static checks using github actions
