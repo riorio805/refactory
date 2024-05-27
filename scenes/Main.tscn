@@ -148,7 +148,6 @@ script = ExtResource("1_wodd6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
 script = ExtResource("2_bn4mo")
-min_distance = 2
 
 [node name="Camera3D" type="Camera3D" parent="Focus"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 2, 2)

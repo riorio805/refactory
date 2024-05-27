@@ -1,46 +1,50 @@
 extends GridMap
 
+const HOVER_ON_STATES = [Globals.PlayState.SELECT, Globals.PlayState.DELETE]
+
 @export var hover_mesh_transparency = 0.4
 @export var hover_mesh_move_mod = 0.6
-var hover_tile:GameTileData
-var pointed_pos:Vector3i
-var hover_shadow_real_pos:Vector3
 
-const hover_on_states = [
-	Globals.PlayState.Select,
-	Globals.PlayState.Delete
-]
+var hover_tile: GameTileData
+var pointed_pos: Vector3i
+var hover_shadow_real_pos: Vector3
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HoverBox.visible = false
 	update_hover_mesh()
 
+
 func _process(_delta):
 	if Globals.is_paused:
 		return
-	
+
 	var shadow = find_child("HoverShadow", true, false)
-	
+
 	if Globals.update_hover:
 		Globals.update_hover = false
 		update_hover_mesh()
-	
+
 	var center_tile = Vector2i(pointed_pos.x, pointed_pos.z)
-	if Globals.state == Globals.PlayState.Build:
+	if Globals.state == Globals.PlayState.BUILD:
 		Globals.hovering = Globals.check_current_pos(center_tile)
-	elif Globals.state == Globals.PlayState.Delete:
+	elif Globals.state == Globals.PlayState.DELETE:
 		var tile = Globals.tiles[center_tile.x][center_tile.y] as GameTileData
-		if (tile == null
+		if (
+			tile == null
 			or tile.building == null
-			or (tile.type == GameTileData.TileType.Stone and not Globals.can_place_anywhere)):
+			or (tile.type == GameTileData.TileType.Stone and not Globals.can_place_anywhere)
+		):
 			Globals.hovering = false
 		else:
 			Globals.hovering = true
-		$HoverBox.scale = Vector3(1,1,1)
-	
+		$HoverBox.scale = Vector3(1, 1, 1)
+
 	match Globals.state:
-		Globals.PlayState.Build:
+		Globals.PlayState.BUILD:
 			if shadow:
 				if Globals.check_current_pos(center_tile):
 					shadow.visible = true
@@ -49,34 +53,35 @@ func _process(_delta):
 		_:
 			if shadow:
 				shadow.visible = false
-	
-	if (Globals.hovering and
-		Globals.state in hover_on_states):
+
+	if Globals.hovering and Globals.state in HOVER_ON_STATES:
 		$HoverBox.visible = true
 	else:
 		$HoverBox.visible = false
 		#shadow.visible = false
-	
+
 	if Globals.hovering:
 		$HoverBox.position.x = pointed_pos.x
 		$HoverBox.position.z = pointed_pos.z
-	
+
 	if shadow:
-		hover_shadow_real_pos = Vector3(pointed_pos) + Vector3(0,0.25,0)
+		hover_shadow_real_pos = Vector3(pointed_pos) + Vector3(0, 0.25, 0)
 		shadow.position += (hover_shadow_real_pos - shadow.position) * hover_mesh_move_mod
-	
+
 	#print("shadow is " + str(shadow.visible) + " at " + str(shadow.position))
+
 
 func set_point_pos(mouse_pos):
 	if mouse_pos == null:
 		Globals.hovering = false
 	elif abs(mouse_pos.x) <= 2.5 and abs(mouse_pos.z) <= 2.5:
-		pointed_pos = Vector3i(0,0,0)
+		pointed_pos = Vector3i(0, 0, 0)
 		Globals.hovering = true
 	else:
 		pointed_pos = local_to_map(to_local(mouse_pos) + Vector3(0.5, 0, 0.5))
 		Globals.hovering = true
 	#print(pointed_pos)
+
 
 func update_hover_mesh():
 	var prev_pos = Vector3()
@@ -85,7 +90,7 @@ func update_hover_mesh():
 		prev_pos = prev.position
 		prev.queue_free()
 		await get_tree().process_frame
-	
+
 	var building = Globals.current_building
 	if not building:
 		return

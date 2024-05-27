@@ -1,7 +1,6 @@
 extends ColorRect
 
 
-
 func _on_win_close_button_pressed():
 	visible = false
 

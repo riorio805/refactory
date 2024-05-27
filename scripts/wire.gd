@@ -9,23 +9,32 @@ var end_y = 1
 
 func _ready():
 	var start_curve = Curve3D.new()
-	start_curve.add_point(
-		Vector3(0,0,0),
-		Vector3(0,0,0),
-		Vector3(0,-0.2,0),
+	(
+		start_curve
+		. add_point(
+			Vector3(0, 0, 0),
+			Vector3(0, 0, 0),
+			Vector3(0, -0.2, 0),
+		)
 	)
-	start_curve.add_point(
-		Vector3(1,-0.01,0),
-		Vector3(0,-0.2,0),
-		Vector3(0,0,0),
+	(
+		start_curve
+		. add_point(
+			Vector3(1, -0.01, 0),
+			Vector3(0, -0.2, 0),
+			Vector3(0, 0, 0),
+		)
 	)
 	self.wire.curve = start_curve
 
-func set_end(arg:Vector2):
+
+func set_end(arg: Vector2):
 	end_pos = arg
+
 
 func get_len():
 	return end_pos.length()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
