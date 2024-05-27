@@ -1,0 +1,8 @@
+You can activate cheats through the cheats menu by pressing tilde (`).
+The cheats are self-explanatory.
+
+List of cheats:
+- Game speed: changes the game speed
+	Note that this affects everything including movement and animations
+- Allow builing on red areas
+	Only allows building on red areas, other buildings can still block current building.

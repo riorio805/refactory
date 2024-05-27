@@ -56,7 +56,7 @@ func create_building(build_pos:Vector2i):
 			var tile = Globals.tiles[pos.x][pos.y] as GameTileData
 			if (tile == null
 				or tile.building != null
-				or tile.type == GameTileData.TileType.Stone):
+				or (tile.type == GameTileData.TileType.Stone and not Globals.can_place_anywhere)):
 				built.free()
 				return
 			

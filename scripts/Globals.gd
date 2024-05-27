@@ -17,6 +17,9 @@ var warnings = [
 	["Hello", 1]
 ]
 
+#cheats
+var can_place_anywhere = false
+
 var is_paused = true
 var is_win = false
 var generated = false
@@ -95,7 +98,7 @@ func check_current_pos(build_pos:Vector2i):
 			var tile = Globals.tiles[pos.x][pos.y] as GameTileData
 			if (tile == null
 				or tile.building != null
-				or tile.type == GameTileData.TileType.Stone):
+				or (tile.type == GameTileData.TileType.Stone and not Globals.can_place_anywhere)):
 				return false
 	
 	return true

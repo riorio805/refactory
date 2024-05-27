@@ -33,7 +33,7 @@ func _process(_delta):
 		var tile = Globals.tiles[center_tile.x][center_tile.y] as GameTileData
 		if (tile == null
 			or tile.building == null
-			or tile.type == GameTileData.TileType.Stone):
+			or (tile.type == GameTileData.TileType.Stone and not Globals.can_place_anywhere)):
 			Globals.hovering = false
 		else:
 			Globals.hovering = true

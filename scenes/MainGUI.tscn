@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck2e70ll2l5dp"]
+[gd_scene load_steps=15 format=3 uid="uid://ck2e70ll2l5dp"]
 
 [ext_resource type="Script" path="res://scripts/OrinDisplay.gd" id="1_r1vub"]
 [ext_resource type="Script" path="res://scripts/StateDisplay.gd" id="1_xwifr"]
@@ -7,7 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://gee4a0ayuqdk" path="res://assets/ui/building_desc.png" id="5_whknc"]
 [ext_resource type="Script" path="res://scripts/MatCountDisplay.gd" id="7_6i7wp"]
 [ext_resource type="Script" path="res://scripts/CurrBuildDisplay.gd" id="8_bp5se"]
+[ext_resource type="Texture2D" uid="uid://cvldex23x2kcy" path="res://assets/ui/cheat_menu.png" id="9_k2bib"]
 [ext_resource type="Script" path="res://scripts/WarningDisplay.gd" id="9_utu2n"]
+[ext_resource type="Script" path="res://scripts/CheatMenu.gd" id="9_w0cpx"]
+[ext_resource type="Texture2D" uid="uid://bsrjc8awmkf1d" path="res://assets/ui/long_bar.png" id="11_dvvor"]
+[ext_resource type="Script" path="res://scripts/cheats/GameSpeed.gd" id="12_nnwdw"]
+[ext_resource type="Script" path="res://scripts/cheats/PlaceAnywhere.gd" id="13_4q2nl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2sdju"]
 content_margin_left = 10.0
@@ -173,3 +178,82 @@ fit_content = true
 autowrap_mode = 0
 text_direction = 1
 script = ExtResource("9_utu2n")
+
+[node name="CheatMenu" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1920.0
+offset_right = 2320.0
+offset_bottom = 420.0
+texture = ExtResource("9_k2bib")
+script = ExtResource("9_w0cpx")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CheatMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CheatMenu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="CheatMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Cheats!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="longbar" type="TextureRect" parent="CheatMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_dvvor")
+
+[node name="GameSpeed" type="VBoxContainer" parent="CheatMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("12_nnwdw")
+
+[node name="Text" type="Label" parent="CheatMenu/ScrollContainer/VBoxContainer/GameSpeed"]
+layout_mode = 2
+text = "Game speed"
+
+[node name="Input" type="HBoxContainer" parent="CheatMenu/ScrollContainer/VBoxContainer/GameSpeed"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSlider" type="HSlider" parent="CheatMenu/ScrollContainer/VBoxContainer/GameSpeed/Input"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.5
+max_value = 20.0
+step = 0.05
+value = 1.0
+exp_edit = true
+allow_greater = true
+
+[node name="Label" type="Label" parent="CheatMenu/ScrollContainer/VBoxContainer/GameSpeed/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0.2
+"
+
+[node name="PlaceAnywhere" type="HBoxContainer" parent="CheatMenu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("13_4q2nl")
+
+[node name="Text" type="Label" parent="CheatMenu/ScrollContainer/VBoxContainer/PlaceAnywhere"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Allow building on red areas"
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="CheatMenu/ScrollContainer/VBoxContainer/PlaceAnywhere"]
+layout_mode = 2
+size_flags_horizontal = 4
