@@ -246,11 +246,6 @@ script = ExtResource("8_2xh57")
 [node name="Wires" type="Node" parent="."]
 script = ExtResource("9_s0txy")
 
-[node name="MainGUI" parent="." instance=ExtResource("5_d88bs")]
-visible = false
-
-[node name="MainMenu" parent="." instance=ExtResource("13_ycbls")]
-
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"BGM"
 script = ExtResource("10_nloyd")
@@ -274,6 +269,11 @@ autowrap_mode = 0
 selection_enabled = true
 deselect_on_focus_loss_enabled = false
 script = ExtResource("15_sen46")
+
+[node name="MainGUI" parent="." instance=ExtResource("5_d88bs")]
+visible = false
+
+[node name="MainMenu" parent="." instance=ExtResource("13_ycbls")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -316,8 +316,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Exit Game"
 
+[connection signal="finished" from="BGMPlayer" to="BGMPlayer" method="_on_finished"]
 [connection signal="generate_world" from="MainMenu" to="TileFactory" method="_on_main_menu_generate_world"]
 [connection signal="pause" from="MainMenu" to="." method="_on_main_menu_pause"]
-[connection signal="finished" from="BGMPlayer" to="BGMPlayer" method="_on_finished"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/WinCloseButton" to="ColorRect" method="_on_win_close_button_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/WinExitButton" to="ColorRect" method="_on_win_exit_button_pressed"]

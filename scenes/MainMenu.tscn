@@ -51,7 +51,7 @@ label_settings = SubResource("LabelSettings_2ikpj")
 [node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "(tech demo, indev, etc.)"
+text = "(tech demo)"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -105,7 +105,6 @@ theme_override_font_sizes/font_size = 40
 text = "Exit Game"
 
 [node name="Credits" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 580.0
 offset_top = 20.0
