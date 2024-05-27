@@ -10,8 +10,6 @@ var pointed_pos: Vector3i
 var hover_shadow_real_pos: Vector3
 
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$HoverBox.visible = false

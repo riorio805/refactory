@@ -5,6 +5,7 @@ var game_speed = 1
 @onready var slider = $Input/HSlider
 @onready var display_text = $Input/Label
 
+
 func _ready():
 	slider.value = game_speed
 
