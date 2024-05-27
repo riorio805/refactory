@@ -31,6 +31,8 @@ enum BuildingType {
 
 @export var blueprint:Array[PackedInt32Array]
 
+@export var behaviour:Script
+
 # Blueprint specifications
 # blueprint[x][z]
 #
